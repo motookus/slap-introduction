@@ -1,0 +1,356 @@
+body {
+  text-align: center;
+  color: white;
+  background-color: brown;
+  text-shadow: 2px 0 0 black, -2px 0 0 black, 0 2px 0 black, 0 -2px 0 black,
+              1.5px 1.5px 0 black, -1.5px 1.5px 0 black, 1.5px -1.5px 0 black, -1.5px -1.5px 0 black;
+  margin: 0;
+  padding: 0;
+}
+
+header {
+  background: url("header.gif") no-repeat center center;
+  background-size: cover;
+  height: 400px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;  /* ← 追加 */
+}
+
+.button-container {
+  display: flex;
+  flex-direction: row;
+  gap: 30px;
+  flex-wrap: wrap;  /* ← スマホで折り返す */
+  justify-content: center;
+}
+
+header button {
+  padding: 10px 20px;
+  margin: 10px auto;
+  background-color: #8B4513;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+header button:hover {
+  background-color: #A0522D;
+  transform: scale(1.05);
+}
+
+header button:active {
+  transform: scale(0.95);
+}
+
+button {
+  margin: 10px auto;
+  padding: 10px 20px;
+}
+
+ol {
+  list-style-position: inside;
+  margin: 0;
+  padding: 0;
+}
+
+main {
+  background-color: rgb(130, 0, 6);
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+  margin-top: 50px;
+  padding: 0;  /* ← 余白を削除 */
+  box-sizing: border-box;
+}
+
+/* コメント欄のスタイル */
+.comment-box {
+  background: linear-gradient(135deg, rgba(139, 69, 19, 0.3), rgba(160, 82, 45, 0.3));
+  border: 3px solid #8B4513;
+  border-radius: 15px;
+  padding: 25px;
+  margin: 30px auto;
+  width: 80%;
+  max-width: 800px;  /* ← 追加 */
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+  animation: glow 2s ease-in-out infinite;
+  box-sizing: border-box;  /* ← 追加 */
+}
+
+@keyframes glow {
+  0%, 100% {
+    box-shadow: 0 8px 20px rgba(139, 69, 19, 0.3);
+  }
+  50% {
+    box-shadow: 0 8px 30px rgba(139, 69, 19, 0.6);
+  }
+}
+
+.comment-box input,
+.comment-box textarea {
+  width: 90%;
+  padding: 15px;
+  margin: 10px 0;
+  border-radius: 10px;
+  border: 2px solid #A0522D;
+  font-size: 16px;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  transition: all 0.3s ease;
+  box-sizing: border-box;  /* ← 追加 */
+}
+
+.comment-box input:focus,
+.comment-box textarea:focus {
+  outline: none;
+  border-color: #D2691E;
+  box-shadow: 0 0 15px rgba(139, 69, 19, 0.5);
+  transform: scale(1.02);
+}
+
+.comment-item {
+  display: flex;
+  gap: 15px;
+  background: linear-gradient(135deg, rgba(0, 0, 0, 0.6), rgba(139, 69, 19, 0.3));
+  border: 2px solid #8B4513;
+  border-left: 5px solid #A0522D;
+  border-radius: 12px;
+  padding: 20px;
+  margin: 20px 0;
+  transition: all 0.3s ease;
+  animation: slideIn 0.5s ease;
+}
+
+.comment-item:hover {
+  transform: translateX(10px);
+  box-shadow: 0 5px 20px rgba(139, 69, 19, 0.4);
+  border-left-color: #D2691E;
+}
+
+.comment-avatar {
+  width: 50px;
+  height: 50px;
+  min-width: 50px;
+  background: linear-gradient(135deg, #8B4513, #A0522D);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  font-weight: bold;
+  color: white;
+  box-shadow: 0 4px 10px rgba(139, 69, 19, 0.5);
+  border: 3px solid #A0522D;
+}
+
+.comment-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.comment-header {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+.comment-name {
+  font-weight: bold;
+  font-size: 18px;
+  color: #FFD700;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+  padding: 5px 12px;
+  background: rgba(255, 215, 0, 0.2);
+  border-radius: 20px;
+}
+
+.comment-time {
+  font-size: 13px;
+  color: #CCC;
+  opacity: 0.8;
+}
+
+.comment-text {
+  color: white;
+  font-size: 16px;
+  line-height: 1.6;
+  word-wrap: break-word;
+  padding: 10px 0;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
+}
+
+.loading {
+  color: #FFD700;
+  font-size: 20px;
+  margin: 30px;
+  text-align: center;
+  animation: pulse 1.5s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+.comment-image {
+  margin-top: 10px;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.comment-image img {
+  max-width: 100%;
+  max-height: 400px;
+  border-radius: 8px;
+  border: 2px solid #8B4513;
+  display: block;
+}
+
+head {
+  background-color: #FFD700;
+}
+
+/* メディア共通スタイル */
+.comment-media {
+  margin-top: 12px;
+  border-radius: 8px;
+  overflow: hidden;
+  background: #f5f5f5;
+}
+
+.comment-media img {
+  width: 100%;
+  max-width: 500px;
+  height: auto;
+  display: block;
+  border-radius: 8px;
+}
+
+.comment-media video {
+  width: 100%;
+  max-width: 600px;
+  height: auto;
+  display: block;
+  border-radius: 8px;
+}
+
+.comment-media audio {
+  width: 100%;
+  max-width: 400px;
+  display: block;
+  margin: 8px 0;
+}
+
+.comment-media iframe {
+  width: 100%;
+  max-width: 560px;
+  height: 315px;
+  border-radius: 8px;
+}
+
+.file-link {
+  display: inline-block;
+  padding: 10px 16px;
+  background: #4a90e2;
+  color: white;
+  text-decoration: none;
+  border-radius: 6px;
+  font-weight: 500;
+  transition: background 0.2s;
+}
+
+.file-link:hover {
+  background: #357abd;
+}
+
+.url-hint {
+  font-size: 14px;
+  color: #FFD700;
+  margin-top: 10px;
+  line-height: 1.6;
+}
+
+.url-hint a {
+  color: #FFA500;
+  text-decoration: underline;
+}
+
+/* スマホ対応 */
+@media (max-width: 768px) {
+  header {
+    height: 300px;  /* スマホでは少し低く */
+  }
+
+  main {
+    width: 100%;
+    max-width: 100%;
+    padding: 10px;
+    margin-top: 20px;
+  }
+
+  .button-container {
+    gap: 10px;
+  }
+
+  header button {
+    padding: 8px 15px;
+    font-size: 14px;
+  }
+
+  .comment-box {
+    width: 90%;
+    padding: 15px;
+  }
+
+  .comment-item {
+    padding: 15px;
+    gap: 10px;
+  }
+
+  .comment-item:hover {
+    transform: translateX(5px);  /* スマホでは移動を少なく */
+  }
+
+  .comment-avatar {
+    width: 40px;
+    height: 40px;
+    min-width: 40px;
+    font-size: 20px;
+  }
+
+  .comment-name {
+    font-size: 16px;
+  }
+
+  .comment-text {
+    font-size: 14px;
+  }
+
+  .comment-media iframe {
+    height: 200px;  /* スマホでYouTube動画を小さく */
+  }
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}

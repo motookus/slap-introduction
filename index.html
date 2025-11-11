@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>バナナ猫のゲーム紹介</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>バナナ猫のゲーム紹介</h1>
+    
+    <div class="button-container">
+      <a href="#target"><button>ゲームについて</button></a>
+      <a href="#target2"><button>操作方法</button></a>
+      <a href="#target3"><button>掲示板</button></a>
+    </div>
+  </header>
+  <main>
+    <h2 id="target">スラップバトルについて</h2>
+    <img src="bob.png" alt="ボブとキューブ" style="width: 850px;">
+    <p>
+      スラップバトルとは手袋で相手を叩き飛ばし、<br>
+      スラップ数を溜めてどんどん強い手袋を解除していくゲームです。<br>
+      最初から強力な手袋も獲得可能で、誰でもすぐに爽快感を味わえます。<br>
+      シンプルな操作なのに驚くほど中毒性が高い、人気のバトルゲームです！
+    </p>
+
+    <h2 id="target2">操作方法</h2>
+    <p>
+      まず手袋をクリックして選びましょう。
+    </p>
+    <img src="default.png" alt="手袋" style="width: 200px;">
+    <p>
+      WSADキーまたはスティックボタンで操作 <br>
+      クリックで叩けます。<br>
+      Eキーで手袋能力を使う
+    </p>
+    <img src="slap.gif" alt="吹っ飛ばす" style="width: 850px;">
+
+    <h2 id="target3">掲示板</h2>
+<div class="comment-box">
+  <input type="text" placeholder="名前" id="name">
+  <textarea placeholder="コメントを入力" id="comment"></textarea>
+  <input type="text" placeholder="メディアURL (画像・動画・YouTube等)" id="media-url">
+  <div class="url-hint">
+    画像(jpg/png/gif), 動画(mp4), 音声(mp3), Youtube対応
+  </div>
+  <button id="post-button">投稿</button>
+</div>
+
+<div id="comment-list">
+  <div class="loading">コメントを読み込み中...</div>
+</div>
+  </main>
+
+  <head>
+    <p>
+BY BANANACAT
+    </p>
+  </head>
+  <script type="module" src="main.js"></script>
+</body>
+</html>
